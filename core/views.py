@@ -26,3 +26,18 @@ def skills(request):
         'Bootstrap'
     ]
     return render(request, 'core/skills.html', {'competences': competences})
+def contact(request):
+    # Récupérer les données GET si le formulaire est soumis
+    nom = request.GET.get('nom', '')
+    email = request.GET.get('email', '')
+    message = request.GET.get('message', '')
+    submitted = False
+    if nom and email and message:
+        submitted = True  # On pourra l'afficher pour confirmation
+    
+    return render(request, 'core/contact.html', {
+        'submitted': submitted,
+        'nom': nom,
+        'email': email,
+        'message': message
+    })
