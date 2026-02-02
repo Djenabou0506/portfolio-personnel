@@ -13,3 +13,16 @@ def project_detail(request, id):
     # Cherche le projet par id
     projet = get_object_or_404([p for p in projets if p['id'] == id], id=id)
     return render(request, 'core/project_detail.html', {'projet': projet})
+def skills(request):
+    # Liste des compétences
+    competences = [
+        'Python',
+        'Django',
+        'HTML',
+        'CSS',
+        'Git',
+        'github',
+        'MySQL',
+        'Bootstrap'
+    ]
+    return render(request, 'core/skills.html', {'competences': competences})
