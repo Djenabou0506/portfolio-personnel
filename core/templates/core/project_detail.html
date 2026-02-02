@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mes Projets | Portfolio</title>
+    <title>{{ projet.titre }} | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -13,30 +13,26 @@
         <a class="navbar-brand" href="/">Portfolio</a>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/projects/">Projets</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects/">Projets</a></li>
             <li class="nav-item"><a class="nav-link" href="/skills/">Compétences</a></li>
             <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
         </ul>
     </div>
 </nav>
 
-<!-- LISTE DES PROJETS -->
+<!-- DETAIL PROJET -->
 <section class="container py-5">
-    <h1 class="text-center mb-5">Mes Projets</h1>
+    <h1 class="mb-3">{{ projet.titre }}</h1>
+    <p>{{ projet.description }}</p>
 
-    <div class="row">
-        {% for p in projets %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ p.titre }}</h5>
-                    <p class="card-text">{{ p.description }}</p>
-                    <a href="/project/{{ p.id }}/" class="btn btn-primary">Voir détails</a>
-                </div>
-            </div>
-        </div>
+    <h5>Technologies utilisées :</h5>
+    <ul>
+        {% for tech in projet.techno %}
+        <li>{{ tech }}</li>
         {% endfor %}
-    </div>
+    </ul>
+
+    <a href="/projects/" class="btn btn-secondary mt-3">Retour aux projets</a>
 </section>
 
 <!-- FOOTER -->
