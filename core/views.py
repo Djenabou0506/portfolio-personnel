@@ -119,6 +119,7 @@ def skills(request):
 
 def contact(request):
     nom = request.GET.get('nom', '')
+    prenom = request.GET.get('prenom', '')
     email = request.GET.get('email', '')
     message = request.GET.get('message', '')
 
@@ -127,6 +128,7 @@ def contact(request):
 
         <form method="get">
             Nom : <input type="text" name="nom"><br><br>
+            prenom : <input type="text" name="prenom"><br><br>
             Email : <input type="email" name="email"><br><br>
             Message : <textarea name="message"></textarea><br><br>
             <button type="submit">Envoyer</button>
@@ -138,6 +140,7 @@ def contact(request):
             <hr>
             <h3>Message reçu :</h3>
             <p><strong>Nom :</strong> {nom}</p>
+            <p><strong>Prenom :</strong> {prenom}</p>
             <p><strong>Email :</strong> {email}</p>
             <p><strong>Message :</strong> {message}</p>
         """
