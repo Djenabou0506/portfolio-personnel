@@ -29,21 +29,29 @@ PROJETS = [
 # ======================
 def home(request):
     return HttpResponse("""
-        <h1>Bienvenue sur mon portfolio personnel.</h1>
-        <h2>Djenabou Balde</h2>
-        <h4 class="text-muted">Diplômée en MIAGE – Analyse & Développement</h4>
-        <p class="mt-3">
-            Développeuse passionnée par la conception d’applications web modernes,
-            performantes et bien structurées.
-        </p>
-        <a href="/projects/">Mes Projets</a> |
-        <a href="/skills/">Compétences</a> |
-        <a href="/contact/">Contact</a>
-    """)
+        <nav> 
+            <a href="/projects/">Mes Projets</a> |
+            <a href="/skills/">Compétences</a> |
+            <a href="/contact/">Contact</a>
+        <nav>
+            
+             <h1>Bienvenue sur mon portfolio personnel</h1>
 
-# ======================
+            <h2>Je suis Djenabou Balde</h2>
+
+            <h4 class="text-muted">
+                 Diplômée en MIAGE – Analyse & Développement
+            </h4>
+
+            <p class="mt-3">
+                Développeuse passionnée par la conception d’applications web modernes,
+                performantes et bien structurées.
+            </p>
+        """)
+
+
 # PAGE MES PROJETS
-# ======================
+
 def projects(request):
     html = "<h1>Mes Projets</h1><ul>"
 
@@ -59,9 +67,9 @@ def projects(request):
     html += "</ul><a href='/'>Retour Accueil</a>"
     return HttpResponse(html)
 
-# ======================
+
 # PAGE DÉTAIL PROJET
-# ======================
+
 def project_detail(request, id):
     projet = None
     for p in PROJETS:
@@ -90,9 +98,9 @@ def project_detail(request, id):
 
     return HttpResponse(html)
 
-# ======================
+
 # PAGE COMPÉTENCES
-# ======================
+
 def skills(request):
     competences = [
         'Python', 'Django', 'HTML', 'CSS',
@@ -106,9 +114,9 @@ def skills(request):
 
     return HttpResponse(html)
 
-# ======================
+
 # PAGE CONTACT (GET)
-# ======================
+
 def contact(request):
     nom = request.GET.get('nom', '')
     email = request.GET.get('email', '')
